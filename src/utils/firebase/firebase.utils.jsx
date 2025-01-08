@@ -4,7 +4,9 @@ import { getAuth,
     signInWithPopup,
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
 } from "firebase/auth";
 import {
     getFirestore,
@@ -78,3 +80,22 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
     
     return await signInWithEmailAndPassword(auth, email, password)
 }
+
+export const signOutUser = async () => await signOut(auth)
+
+export const onAuthStateChangedListener = (callback) =>
+    onAuthStateChanged(auth, callback,)
+    // onAuthStateChanged runs everytime the auth state changes, so everytime
+    // the user signs in or signs out
+    // This is a permanant listener so you need to turn this off when you
+    // no longer need it
+
+    /**
+     * 
+     * {
+     *  next: callback
+     *  error: errorCallback
+     *  complete: completedCallback
+     * }
+     * 
+    */
