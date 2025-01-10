@@ -1,14 +1,18 @@
 import { Outlet, Link } from "react-router-dom"
 import { Fragment, useContext } from "react"
 import CakeLogo from "../../assets/cake.svg"
+import CartIcon from "../../Components/cart-icon/cart-icon.component"
+import CartDropDown from "../../Components/cart-drop-down/cart-dropdown.component"
 import { UserContext } from "../../contexts/user.context"
+import { CartContext } from "../../contexts/cart.context"
 import { signOutUser } from "../../utils/firebase/firebase.utils"
 import "./navigation.styles.scss"
+
 // import { ReactComponent as CakeLogo } from "../../assets/cake.svg"
 
 const Navigation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext)
-
+  const { currentUser } = useContext(UserContext)
+  const { isCartOpen } = useContext(CartContext)
   // const signOutHandler = async () => {
   //   await signOutUser()
   //   setCurrentUser(null)
@@ -38,7 +42,18 @@ const Navigation = () => {
             <Link className="nav-link" to="/gallery">
               Gallery
             </Link>
+            {/* <Link className="nav-link" to="/gallery">
+              <img src={ShoppingCartLogo} className="cart-logo"
+              style={{height: "2em", width: "2em"}}/>
+            </Link> */}
+            <CartIcon />
           </div>
+          {/* Short circuit operator, both values have to be true for this
+          to run. If isCartOpen is false then there is no CartDropDown.
+          If isCartOpen is true then CartDropDown will appear. Components are
+          all truthy values as they are functions. If both values are true,
+          they it will evaluate the last value */}
+          {isCartOpen && <CartDropDown />}
         </div>
         <Outlet />
       </Fragment>
