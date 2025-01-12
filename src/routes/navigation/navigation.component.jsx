@@ -47,6 +47,8 @@ const Navigation = () => {
               style={{height: "2em", width: "2em"}}/>
             </Link> */}
             <CartIcon />
+            <Link className="nav-link" to="/checkout">
+            Checkout</Link>
           </div>
           {/* Short circuit operator, both values have to be true for this
           to run. If isCartOpen is false then there is no CartDropDown.
