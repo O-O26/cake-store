@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./routes/home/home.component"
 import Navigation from "./routes/navigation/navigation.component"
 import Authentication from "./routes/authentication/authentication.component.jsx"
+import Checkout from "./routes/checkout/checkout.component.jsx"
 
 import Shop from "./routes/shop/shop.component.jsx"
 
@@ -16,9 +17,10 @@ const App = () => {
         <Route index={true} element={<Home />} /> {/* Index = true means
         that when the path="/" is just the slash, then this current
         element is the home element*/}
-        <Route path="shop" element={<Shop />}/>
+        <Route path="shop/*" element={<Shop />}/>
         <Route path="auth" element={<Authentication />}/>
         <Route path="gallery" element={<Gallery />} />
+        <Route path="checkout" element={<Checkout />} ></Route>
       </Route>
     </Routes>
   )

@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { Fragment, useContext } from "react"
 import CakeLogo from "../../assets/cake.svg"
 import CartIcon from "../../Components/cart-icon/cart-icon.component"
@@ -6,7 +6,9 @@ import CartDropDown from "../../Components/cart-drop-down/cart-dropdown.componen
 import { UserContext } from "../../contexts/user.context"
 import { CartContext } from "../../contexts/cart.context"
 import { signOutUser } from "../../utils/firebase/firebase.utils"
-import "./navigation.styles.scss"
+import { NavigationContainer, LogoContainer, 
+  NavLinks, NavLink
+ } from "./navigation.styles"
 
 // import { ReactComponent as CakeLogo } from "../../assets/cake.svg"
 
@@ -20,43 +22,43 @@ const Navigation = () => {
     return(
       <Fragment> {/* Fragment is used if you don't want to load a wrapping
       div around the code, that React forces you to do by default*/}
-        <div className="navigation">
-          <Link className="logo-container" to="/">
+        <NavigationContainer>
+          <LogoContainer to="/">
             {/* <div>Logo</div> */}
             <img src={CakeLogo} className="logo" style={{height: "2.5em", width:"2.5em"}}/>
             {/* <CakeLogo className="logo"/> */}
-          </Link>
-          <div className="nav-links-container">
-            <Link className="nav-link" to="/shop">
+          </LogoContainer>
+          <NavLinks>
+            <NavLink to="/shop">
               Shop
-            </Link>
+            </NavLink>
             {
               // When the user is signed in, put a sign out nav-link
               // When the user is signed out, put a sign in nav-link
               currentUser ?
-                (<span className="nav-link" onClick={signOutUser}>Sign Out</span>)
-              : (<Link className="nav-link" to="/auth">
+                (<NavLink as="span" onClick={signOutUser}>Sign Out</NavLink>)
+              : (<NavLink to="/auth">
               Sign In
-            </Link>)
+            </NavLink>)
             }
-            <Link className="nav-link" to="/gallery">
+            <NavLink to="/gallery">
               Gallery
-            </Link>
+            </NavLink>
             {/* <Link className="nav-link" to="/gallery">
               <img src={ShoppingCartLogo} className="cart-logo"
               style={{height: "2em", width: "2em"}}/>
             </Link> */}
             <CartIcon />
-            <Link className="nav-link" to="/checkout">
-            Checkout</Link>
-          </div>
+            <NavLink to="/checkout">
+            Checkout</NavLink>
+          </NavLinks>
           {/* Short circuit operator, both values have to be true for this
           to run. If isCartOpen is false then there is no CartDropDown.
           If isCartOpen is true then CartDropDown will appear. Components are
           all truthy values as they are functions. If both values are true,
           they it will evaluate the last value */}
           {isCartOpen && <CartDropDown />}
-        </div>
+        </NavigationContainer>
         <Outlet />
       </Fragment>
     )

@@ -1,8 +1,9 @@
 import { useContext } from "react"
 import { CartContext } from "../../contexts/cart.context"
-import ShoppingIcon from "../../assets/shopping-bag.svg"
+import ShoppingSvg from "../../assets/shopping-bag.svg"
 
-import "./cart-icon.styles.scss"
+import { CartIconContainer, ItemCount }
+from "./cart-icon.styles"
 
 const CartIcon = () => {
     const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext)
@@ -12,11 +13,10 @@ const CartIcon = () => {
         // originally is false then it now becomes true and vice versa
 
     return(
-        <div className="cart-icon-container" onClick={toggleIsCartOpen}>
-            <img src={ShoppingIcon} alt="Shopping icon" 
-            className="shopping-icon"/>
-            <span className="item-count">{cartCount}</span>
-        </div>
+        <CartIconContainer onClick={toggleIsCartOpen}>
+            <img src={ShoppingSvg} className="shopping-icon" alt="shopping-bag"/>
+            <ItemCount>{cartCount}</ItemCount>
+        </CartIconContainer>
     )
 }
 
