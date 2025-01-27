@@ -4,34 +4,33 @@ import "./directory.styles.scss"
 const categories = [
   {
     "id": 1,
-    "title": "Chocolate Cake",
-    "imageUrl": "https://i.ibb.co/cvpntL1/hats.png",
-    "route": "shop/breads"
-  },
-  {
-    "id": 2,
-    "title": "Vanilla Cake",
-    "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png",
+    "title": "Homemade Cakes",
+    "imageUrl": "https://i.postimg.cc/zfN9pyQ8/red-velvet-cake-4917734-640.jpg",
     "route": "shop/cakes"
   },
   {
+    "id": 2,
+    "title": "Oven Baked Breads",
+    "imageUrl": "https://i.postimg.cc/x8SQ0SgS/image-asset.jpg",
+    "route": "shop/breads"
+  },
+  {
     "id": 3,
-    "title": "Black Forest Cake",
-    "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png",
-    "route": "shop/sweet%20treats"
+    "title": "Savoury Pastries",
+    "imageUrl": "https://i.postimg.cc/zB8JYgjk/images-7.jpg",
+    "route": "shop/pastries"
   },
   {
     "id": 4,
-    "title": "Red Velvet Cake",
-    "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png",
+    "title": "Sweet Treats",
+    "imageUrl": "https://i.postimg.cc/28hsRdhn/muffin-4869934-1280.jpg",
     "route": "shop/sweet%20treats"
-
   },
   {
     "id": 5,
-    "title": "Victoria Sponge Cake",
-    "imageUrl": "https://i.ibb.co/R70vBrQ/men.png",
-    "route": "shop/breads"
+    "title": "Freshly Brewed Drinks",
+    "imageUrl": "https://i.postimg.cc/9QjrMv81/Polar-Express-Hot-Chocolate-1-scaled.jpg",
+    "route": "shop/drinks"
   }
 ]
 

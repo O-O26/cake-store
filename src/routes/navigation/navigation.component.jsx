@@ -25,7 +25,8 @@ const Navigation = () => {
         <NavigationContainer>
           <LogoContainer to="/">
             {/* <div>Logo</div> */}
-            <img src={CakeLogo} className="logo" style={{height: "2.5em", width:"2.5em"}}/>
+            <img src={CakeLogo} className="logo" style={{height: "2.5em", width:"2.5em",
+              margin: "-0.5em 0 0.5em 0.3em"}}/>
             {/* <CakeLogo className="logo"/> */}
           </LogoContainer>
           <NavLinks>
